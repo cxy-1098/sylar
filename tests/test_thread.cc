@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
     YAML::Node root = YAML::LoadFile("/home/sylar/test/sylar/bin/conf/log2.yml");
     sylar::Config::LoadFromYaml(root);
 
-    std::vector<sylar::Thread::ptr> thrs;
+    std::vector<sylar::Thread::ptr> thrs;   // 一组线程（线程池） 
     for(int i = 0; i < 1; ++i) {
         sylar::Thread::ptr thr(new sylar::Thread(&fun2, "name_" + std::to_string(i * 2)));
         //sylar::Thread::ptr thr2(new sylar::Thread(&fun3, "name_" + std::to_string(i * 2 + 1)));
